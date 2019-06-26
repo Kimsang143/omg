@@ -1,12 +1,8 @@
-const express = require('express');
-const path = require('path');
-const app = express();
+const http = require('http');
+const app = require('./app');
 
-//app.use(express.static(path.join(__dirname, 'build')));
+const port = process.env.PORT || 3000;
 
-//app.get('/*', function(req, res) {
-///  res.sendFile(path.join(__dirname, 'build', 'index.html'));
-//});
-app.get('/', (req, res) => res.send('Hello World!'))
+const server = http.createServer(app);
 
-app.listen(3000);
+server.listen(port);
